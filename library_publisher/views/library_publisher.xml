@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <record id="view_contaxt_form_extend" model="ir.ui.view">
+    <field name="name">Publisher Book</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref='base.view_partner_form' />
+    <field name="arch" type='xml'>
+      <xpath expr="//page[@name='internal_notes']" position="after">
+        <page name="book_published" string="Published Book">
+          <field name="published_book_ids" widget="many2many">
+            <kanban>
+              <field name="id" />
+              <field name="name" />
+              <field name="image" />
+              <field name="publisher_id" />
+              <field name="author_ids" />
+              <field name="copies" />
+                <templates>
+                  <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="row">
+                            <div class="col-5 text-center">
+                                <img class="img-fluid rounded mx-auto d-block" t-att-src="kanban_image('library.book','image',record.id.raw_value)" />
+                            </div>
+                            <div class="col oe_kanban_details d-flex flex-column">
+                                <strong>
+                                    <field name="name" />
+                                </strong>
+                                <ul>
+                                    <li>Author: <field name="author_ids" /></li>
+                                    <li>Publisher: <field name="publisher_id" /></li>
+                                    <li>Copies: <field name="copies" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                  </t>
+                </templates>
+              </kanban>
+            </field>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_contaxt_smart_button" model="ir.ui.view" >
+    <field name="name">Publihsed</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <div name="button_box" position="inside">
+        <button class="oe_stat_button" 
+                type="object" 
+                icon="fa-book"                         
+                name="published_book_list"
+                invisible="book_count == 0">
+                <field string="Publihsed Books" name="book_count" widget="statinfo"/>
+        </button>
+      </div>
+    </field>
+  </record>
+</odoo>

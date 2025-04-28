@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem
+        id="library_menu"
+        name="Library"
+        />
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Library Books</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <menuitem
+        id="menu_library_book"
+        name="Books"
+        action="action_library_book"
+        parent="library_menu"
+        />
+    <menuitem
+        id="menu_library_configuration"
+        name="Configuration"
+        parent="library_menu"
+        />
+</odoo>

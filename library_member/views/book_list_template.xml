@@ -1,0 +1,18 @@
+<odoo>
+  <template id="book_list_extended"
+            name="Extended Book List"
+            inherit_id="library_app.book_list_template">
+    <xpath expr="//th[text()='Publisher']" position="after">
+      <th>Is Available?</th>
+    </xpath>
+    <xpath expr="//td[span[@t-field='book.publisher_id']]"
+           position="after">
+      <t t-if="not book.is_available">
+        <td class='text-danger'>(Not Available)</td>
+      </t>
+      <t t-else='' >
+        <td class='text-danger'>(Available)</td>
+      </t>
+    </xpath>
+  </template>
+</odoo>
