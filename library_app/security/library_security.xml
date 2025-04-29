@@ -2,7 +2,7 @@
 
   <data>
   <!-- Library User Group -->
-  <record id="library_group_user" model="res.groups">
+   <record id="library_group_user" model="res.groups">
     <field name="name">User</field>
     <field name="category_id"
            ref="base.module_category_services_library"/>
@@ -33,5 +33,9 @@
       <field name="groups" eval="[(4, ref('library_group_user'))]"/>
     </record>
   </data>
+
+  <record id="library_app.library_group_user" model="res.groups">
+    <field name="name">Librarian</field>
+  </record>
 
 </odoo>

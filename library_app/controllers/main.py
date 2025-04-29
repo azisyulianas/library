@@ -6,18 +6,15 @@ class Books(http.Controller):
     def list(self, **kwargs):
         Book = http.request.env["library.book"]
         books = Book.search([])
+        if kwargs.get('available'):
+            available_book = Book.search([('is_available','=',True)])
+            return http.request.render(
+                "library_app.book_list_template",
+                {"books": available_book}
+            )
         return http.request.render(
             "library_app.book_list_template",
             {"books": books}
-        )
-
-    @http.route("/api/library/books", auth='public')
-    def getJsonData(self, **kwargs):
-        Book = http.request.env["library.book"]
-        book = Book.search_read([],['name', 'id', 'author_ids', 'publisher_id'])
-        return http.request.make_json_response(
-            data={'nama':'Azis Yulianas', 'book':book, 'ayam':True},
-            status=200,
         )
 # class LibraryApp(http.Controller):
 #     @http.route('/library_app/library_app', auth='public')
