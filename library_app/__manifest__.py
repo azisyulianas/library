@@ -5,7 +5,7 @@
     "license": "AGPL-3",
     "website": "https://github.com/PacktPublishing"
                "/Odoo-15-Development-Essentials",
-    "version": "0.11",
+    "version": "0.13",
     "category": "Services/Library",
     "depends": ["base","mail"],
     "data": [
@@ -17,6 +17,9 @@
         "views/member_view.xml",
         "reports/library_book_report.xml",
         "reports/library_publisher_report.xml",
+        'views/checkout_view.xml',
+        'views/checkout_kanban_view.xml',
+        'data/stage_data.xml',
         ],
     "application": True,
     "demo":[

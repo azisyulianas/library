@@ -8,11 +8,6 @@
         decoration-muted="state in ['done','cancel']"
         decoration-bf='state=="open"'
       >
-        <header>
-          <!-- <buttton type='action' 
-            name="%(action_checkout_message)d" 
-            string="Send Messages" /> -->
-        </header>
         <field name="state" invisible="True" />
         <field name="name" />
         <field name="request_date" />

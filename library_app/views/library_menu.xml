@@ -4,6 +4,7 @@
         id="library_menu"
         name="Library"
         />
+
     <record id="action_library_book" model="ir.actions.act_window">
         <field name="name">Library Books</field>
         <field name="res_model">library.book</field>
@@ -14,12 +15,9 @@
         name="Books"
         action="action_library_book"
         parent="library_menu"
+        sequence="1"
         />
-    <menuitem
-        id="menu_library_configuration"
-        name="Configuration"
-        parent="library_menu"
-        />
+    
     <record id="action_library_member" model="ir.actions.act_window">
         <field name="name">Library Members</field>
         <field name="res_model">library.member</field>
@@ -28,6 +26,36 @@
     <menuitem id="menu_library_member"
         name="Members"
         action="action_library_member"
-        parent="library_menu" 
+        parent="library_menu"
+        sequence="2"
     />
+    
+    <record id="action_library_checkout" model="ir.actions.act_window">
+        <field name="name">Checkouts</field>
+        <field name="res_model">library.checkout</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph,activity</field>
+    </record>
+    <menuitem id="menu_library_checkout"
+        name="Checkout"
+        action="action_library_checkout"
+        parent="library_menu"
+        sequence="3"/>
+
+
+    <record id="action_library_stage" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="res_model">library.checkout.stage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_library_configuration"
+        name="Configuration"
+        parent="library_menu"
+        sequence="10"
+        />
+    <menuitem id="menu_library_stage"
+        name="Stages"
+        action="action_library_stage"
+        parent="menu_library_configuration" 
+        />
 </odoo>
