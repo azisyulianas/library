@@ -41,7 +41,7 @@ class CustomerPortal(portal.CustomerPortal):
         }
       )
       return request.render(
-        'library_portal.my_book_checkouts',
+        'library_app.my_book_checkouts',
         values
       )
 
@@ -52,6 +52,6 @@ class CustomerPortal(portal.CustomerPortal):
   )
   def portal_my_project(self, doc=None, **kw):
     return request.render(
-      "library_portal.book_checkout",
+      "library_app.book_checkout",
       {"doc":doc}
     )

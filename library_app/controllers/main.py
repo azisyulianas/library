@@ -16,6 +16,14 @@ class Books(http.Controller):
             "library_app.book_list_template",
             {"books": books}
         )
+    @http.route('/library/catalog', auth='public', website=True)
+    def catalog(self):
+        Book = http.request.env['library.book']
+        books = Book.sudo().search([])
+        return http.request.render(
+            'library_app.book_catalog',
+            {'books':books},
+        )
 # class LibraryApp(http.Controller):
 #     @http.route('/library_app/library_app', auth='public')
 #     def index(self, **kw):

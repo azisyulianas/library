@@ -7,7 +7,7 @@
                "/Odoo-15-Development-Essentials",
     "version": "0.13",
     "category": "Services/Library",
-    "depends": ["base","mail"],
+    "depends": ["base","mail","portal"],
     "data": [
         "security/library_security.xml",
         "security/ir.model.access.csv",
@@ -19,6 +19,8 @@
         "reports/library_publisher_report.xml",
         'views/checkout_view.xml',
         'views/checkout_kanban_view.xml',
+        'views/main_templates.xml',
+        "views/portal_templates.xml",
         'data/stage_data.xml',
         ],
     "application": True,
@@ -27,5 +29,10 @@
         'demo/library.book.csv',
         'demo/book_demo.xml',
         # 'demo/library.member.csv'
-    ]
+    ],
+    "assets":{
+      "web.assets_backend":{
+        "library_app/static/src/css/library.css",
+      },
+    },
 }
