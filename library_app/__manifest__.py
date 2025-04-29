@@ -7,7 +7,9 @@
                "/Odoo-15-Development-Essentials",
     "version": "0.13",
     "category": "Services/Library",
-    "depends": ["base","mail","portal"],
+    "depends": ["base","mail","portal",
+                "contacts","stock","sale",
+                "purchase"],
     "data": [
         "security/library_security.xml",
         "security/ir.model.access.csv",
@@ -21,6 +23,7 @@
         'views/checkout_kanban_view.xml',
         'views/main_templates.xml',
         "views/portal_templates.xml",
+        "views/res_partner.xml",
         'data/stage_data.xml',
         ],
     "application": True,
